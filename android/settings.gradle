@@ -1,0 +1,3 @@
+rootProject.name = 'AQIbot'
+
+include ':app'
