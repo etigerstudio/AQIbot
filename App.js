@@ -7,7 +7,10 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+
+import Card from './components/card'
+import AQIHeader from './components/aqi-header'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -21,15 +24,38 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+         <View style={styles.backView}>
+             <Image style={styles.backImage} source={require('./images/background.jpg')}>
+             </Image>
+         </View>
+         <AQIHeader></AQIHeader>
+         <Card style={{flex: 1}}></Card>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  backView: {
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+  },
+  backImage: {
+      width: '100%',
+      height: '100%',
+      resizeMode: 'cover',
+  },
+});
+/*const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -46,4 +72,4 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
-});
+});*/
