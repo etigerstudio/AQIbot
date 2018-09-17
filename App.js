@@ -9,10 +9,10 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image, ActivityIndicator} from 'react-native';
 
-import Cards from './components/cards'
-import AQIHeader from './components/aqi-header'
-import Caption from './components/caption'
-import Fetcher from './classes/fetcher'
+import Cards from './components/cards';
+import AQIHeader from './components/aqi-header';
+import Caption from './components/caption';
+import Fetcher from './classes/fetcher';
 
 export default class App extends Component {
     constructor(props){

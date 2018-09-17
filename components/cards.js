@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, FlatList} from 'react-native';
 
-import Card from './card'
+import Card from './card';
 
 export class Cards extends Component {
     render() {
