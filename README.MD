@@ -11,6 +11,10 @@
 
 ## 截图
 
-![截图](https://raw.githubusercontent.com/etigerstudio/AQIbot/master/ScreenShot.jpg)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/etigerstudio/AQIbot/master/ScreenShot.jpg" width="375px" alt="截图"/>
+</p>
 
-Copyright 2018 E-Tiger Studio.
+<br/>
+
+> Copyright 2018 E-Tiger Studio.
