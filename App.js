@@ -9,8 +9,9 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 
-import Card from './components/card'
+import Cards from './components/cards'
 import AQIHeader from './components/aqi-header'
+import Caption from './components/caption'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -29,11 +30,8 @@ export default class App extends Component<Props> {
              </Image>
          </View>
          <AQIHeader></AQIHeader>
-         <Card type='CO' unit='mg/L' value='58'></Card>
-         <Card type='CO' unit='mg/L' value='58'></Card>
-         <Card type='CO' unit='mg/L' value='58'></Card>
-         <Card type='CO' unit='mg/L' value='58'></Card>
-         <Card type='CO' unit='mg/L' value='58'></Card>
+         <Caption text='Miami 9:38'></Caption>
+         <Cards></Cards>
       </View>
     );
   }
