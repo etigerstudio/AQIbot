@@ -6,12 +6,7 @@ import Card from './card'
 export class Cards extends Component {
     render() {
         return (
-            <FlatList data={[{type:'CO', unit:'mg/L', value:'58'},
-                {type:'CO', unit:'mg/L', value:'58'},
-                {type:'CO', unit:'mg/L', value:'58'},
-                {type:'CO', unit:'mg/L', value:'58'},
-                {type:'CO', unit:'mg/L', value:'58'},
-                {type:'CO', unit:'mg/L', value:'58'},]}
+            <FlatList data={this.props.data}
                 renderItem={({item}) => <Card type={item.type} unit={item.unit} value={item.value}></Card>}
                 keyExtractor={(item, index) => index.toString()}
                 style={styles.cards}
