@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     card: {
         width: Dimensions.get('window').width*14/39+2085/13,
         height: 74,
+        backgroundColor: 'rgb(101, 35, 135)',
         borderRadius: 8,
         borderWidth: 1,
         borderColor: 'rgba(83, 0, 255, 0.2)',
