@@ -37,6 +37,8 @@
 		2DCD954D1E0B4F2C00145EB5 /* AQIbotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AQIbotTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		573826AD214FCDB50050CEE7 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 573826AC214FCDB50050CEE7 /* background.jpg */; };
+		573826AF214FD9C10050CEE7 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
+		573826B0214FD9C30050CEE7 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		E2D28AFBF18543B78F5721DD /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F42BCD4AFCC34608862E7044 /* libBVLinearGradient.a */; };
@@ -1112,6 +1114,7 @@
 				573826AD214FCDB50050CEE7 /* background.jpg in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				573826AF214FD9C10050CEE7 /* main.jsbundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1120,6 +1123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
+				573826B0214FD9C30050CEE7 /* main.jsbundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
