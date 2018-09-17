@@ -1,25 +1,37 @@
 
+import Locator from './locator';
+
 class Fetcher {
     fetchData(success, failure) {
         //Online Logic
-        return fetch(this.getURLByCity('beijing'))
-        .then((response) => response.json())
-        .then((responseJson) => {
-            console.log(responseJson);
+        Locator.getCity((cityResult) => {
+            return fetch(this.getURLByCity(cityResult.citycode))
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(responseJson);
 
-            success({aqi: this.getAQI(responseJson),
-                pollutants: this.getPollutants(responseJson),
-                caption: `${this.getCity(responseJson)} ${this.getTime()}`});
-        })
-        .catch((error) =>{
-            console.error(error);
+                success({aqi: this.getAQI(responseJson),
+                    pollutants: this.getPollutants(responseJson),
+                        caption: `${cityResult.city} ${this.getTime()}`,
+                        citycode: cityResult.citycode, city: cityResult.city});
+            })
+            .catch((error) =>{
+                failure(error);
+            });
+        }, (error) => {
             failure(error);
         });
 
         //Offline Logic
-        // success({aqi: this.getAQI(result),
-        //     pollutants: this.getPollutants(result),
-        //     caption: `${this.getCity(result)} ${this.getTime()}`});
+        // Locator.getCity((cityResult) => {
+        //     success({aqi: this.getAQI(result),
+        //         pollutants: this.getPollutants(result),
+        //         caption: `${cityResult.city} ${this.getTime()}`,
+        //         citycode: cityResult.citycode, city: cityResult.city});
+        // }, (error) => {
+        //     failure(error);
+        // });
+
     }
 
     getURLByCity(city) {
@@ -27,7 +39,6 @@ class Fetcher {
     }
 
     getAQI(data) {
-        console.log(data);
         let raw = data.reduce((sum, current) => sum + current[aqi], 0) / data.length;
         let value = raw.toFixed();
         let desc = '';
@@ -51,9 +62,9 @@ class Fetcher {
         return `${now.getHours()}:${now.getMinutes()}`;
     }
 
-    getCity(data) {
+    /*getCity(data) {
         return data[0].area;
-    }
+    }*/
 
     getPollutants(data) {
         let result = [];
@@ -80,9 +91,8 @@ const aqi = 'aqi';
 
 const token = '5j1znBVAsnSf5xQyNQyq';
 
-
 //Offline Data
-/*
+
 const result = [{"aqi":61,"area":"北京","co":0.5,"co_24h":0.4,"no2":36,"no2_24h":41,"o3":38,"o3_24h":86,"o3_8h":14,"o3_8h_24h":14,"pm10":72,"pm10_24h":39,"pm2_5":6,"pm2_5_24h":12,"position_name":"万寿西宫","primary_pollutant":"颗粒物(PM10)","quality":"良","so2":4,"so2_24h":2,"station_code":"1001A","time_point":"2018-09-17T11:00:00Z"},
 {"aqi":23,"area":"北京","co":0.4,"co_24h":0.3,"no2":24,"no2_24h":23,"o3":56,"o3_24h":90,"o3_8h":46,"o3_8h_24h":46,"pm10":23,"pm10_24h":38,"pm2_5":5,"pm2_5_24h":7,"position_name":"定陵","primary_pollutant":null,"quality":"优","so2":5,"so2_24h":4,"station_code":"1002A","time_point":"2018-09-17T11:00:00Z"},
 {"aqi":33,"area":"北京","co":0.4,"co_24h":0.3,"no2":31,"no2_24h":37,"o3":48,"o3_24h":100,"o3_8h":24,"o3_8h_24h":24,"pm10":33,"pm10_24h":38,"pm2_5":10,"pm2_5_24h":10,"position_name":"东四","primary_pollutant":null,"quality":"优","so2":4,"so2_24h":3,"station_code":"1003A","time_point":"2018-09-17T11:00:00Z"},
@@ -96,6 +106,5 @@ const result = [{"aqi":61,"area":"北京","co":0.5,"co_24h":0.4,"no2":36,"no2_24
 {"aqi":37,"area":"北京","co":0.3,"co_24h":0.3,"no2":28,"no2_24h":38,"o3":42,"o3_24h":76,"o3_8h":16,"o3_8h_24h":16,"pm10":37,"pm10_24h":38,"pm2_5":10,"pm2_5_24h":12,"position_name":"奥体中心","primary_pollutant":null,"quality":"优","so2":4,"so2_24h":2,"station_code":"1011A","time_point":"2018-09-17T11:00:00Z"},
 {"aqi":21,"area":"北京","co":0.5,"co_24h":0.5,"no2":35,"no2_24h":54,"o3":61,"o3_24h":105,"o3_8h":18,"o3_8h_24h":22,"pm10":21,"pm10_24h":30,"pm2_5":10,"pm2_5_24h":10,"position_name":"古城","primary_pollutant":null,"quality":"优","so2":2,"so2_24h":2,"station_code":"1012A","time_point":"2018-09-17T11:00:00Z"},
 {"aqi":36,"area":"北京","co":0.4,"co_24h":0.35,"no2":28,"no2_24h":35,"o3":48,"o3_24h":92,"o3_8h":24,"o3_8h_24h":26,"pm10":35,"pm10_24h":35,"pm2_5":8,"pm2_5_24h":9,"position_name":null,"primary_pollutant":"","quality":"优","so2":3,"so2_24h":2,"station_code":null,"time_point":"2018-09-17T11:00:00Z"}];
-*/
 
 export default new Fetcher();
