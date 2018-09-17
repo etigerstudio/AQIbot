@@ -29,7 +29,11 @@ export default class App extends Component<Props> {
              </Image>
          </View>
          <AQIHeader></AQIHeader>
-         <Card style={{flex: 1}}></Card>
+         <Card type='CO' unit='mg/L' value='58'></Card>
+         <Card type='CO' unit='mg/L' value='58'></Card>
+         <Card type='CO' unit='mg/L' value='58'></Card>
+         <Card type='CO' unit='mg/L' value='58'></Card>
+         <Card type='CO' unit='mg/L' value='58'></Card>
       </View>
     );
   }
