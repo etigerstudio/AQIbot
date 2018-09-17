@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, Dimensions, Platform} from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -26,13 +26,17 @@ const styles = StyleSheet.create({
     card: {
         width: Dimensions.get('window').width*14/39+2085/13,
         height: 74,
-        shadowColor: '#5300FF',
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.5,
-        shadowRadius: 11,
         borderRadius: 8,
         borderWidth: 1,
         borderColor: 'rgba(83, 0, 255, 0.2)',
+        marginTop: 21,
+        ...Platform.select({
+            ios: {
+            shadowColor: '#5300FF',
+            shadowOffset: { width: 0, height: 3 },
+            shadowOpacity: 0.5,
+            shadowRadius: 11,},
+        }),
     },
     textValue: {
         color: 'rgba(255, 255, 255, 0.85)',
