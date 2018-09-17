@@ -21,7 +21,7 @@ export default class App extends Component {
     }
 
     componentDidMount(){
-        this.fetchData();
+        Fetcher.fetchData((data) => this.fetchSuccess(data), (error) => this.fetchFailure(error));
     }
 
     render() {
@@ -46,11 +46,14 @@ export default class App extends Component {
         );
     }
 
-    fetchData() {
-        let data = Fetcher.fetchData();
-        console.log(data);
-        setTimeout(() => this.setState({isLoading: false, data: {aqi: data.aqi, pollutants: data.pollutants, caption: data.caption}}), 2000);
+    fetchSuccess(data) {
+        console.log('Data fetched.');
+        this.setState({isLoading: false, data: {aqi: data.aqi, pollutants: data.pollutants, caption: data.caption}});
         //setTimeout(() => this.setState({isLoading: false, data: {aqi: data.aqi, pollutants:data.pollutants}}), 2000);
+    }
+
+    fetchFailure(error) {
+        console.log('Failed to fetch data.');
     }
 }
 
