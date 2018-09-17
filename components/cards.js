@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, FlatList} from 'react-native';
 
 import Card from './card'
 
 export class Cards extends Component {
     render() {
         return (
-            <ScrollView style={styles.cards}>
-                <Card type='CO' unit='mg/L' value='58'></Card>
-                <Card type='CO' unit='mg/L' value='58'></Card>
-                <Card type='CO' unit='mg/L' value='58'></Card>
-                <Card type='CO' unit='mg/L' value='58'></Card>
-                <Card type='CO' unit='mg/L' value='58'></Card>
-                <Card type='CO' unit='mg/L' value='58'></Card>
-            </ScrollView>
+            <FlatList data={[{type:'CO', unit:'mg/L', value:'58'},
+                {type:'CO', unit:'mg/L', value:'58'},
+                {type:'CO', unit:'mg/L', value:'58'},
+                {type:'CO', unit:'mg/L', value:'58'},
+                {type:'CO', unit:'mg/L', value:'58'},
+                {type:'CO', unit:'mg/L', value:'58'},]}
+                renderItem={({item}) => <Card type={item.type} unit={item.unit} value={item.value}></Card>}
+                keyExtractor={(item, index) => index.toString()}
+                style={styles.cards}
+            />
         )
     }
 }
