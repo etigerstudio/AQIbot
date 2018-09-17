@@ -8,8 +8,8 @@ export class AQIHeader extends Component {
             <View style={{marginTop: 44, height: 209, width: 209, alignItems: 'center'}}>
                 <Image style={{position: 'absolute', top: 0, left: 0, height: 209, width: 209,}}
                  source={require('../images/circle.png')}></Image>
-                 <Text style={styles.aqi}>97</Text>
-                 <Text style={styles.desc}>良好</Text>
+                 <Text style={styles.aqi}>{this.props.aqi}</Text>
+                 <Text style={styles.desc}>{this.props.desc}</Text>
             </View>
         )
     }
