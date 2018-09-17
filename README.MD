@@ -9,4 +9,8 @@
 * 空气质量数据来自[pm25.in](http://pm25.in/)开放API。
 * 采用[高德地图Web服务](https://lbs.amap.com/)进行城市地理逆解析。
 
+## 截图
+
+![截图](https://raw.githubusercontent.com/etigerstudio/AQIbot/master/ScreenShot.jpg)
+
 Copyright 2018 E-Tiger Studio.
